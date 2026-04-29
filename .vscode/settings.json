@@ -1,6 +1,5 @@
 {
-  "eslint.validate": ["javascript", "html"],
-  "[javascript][typescript]": {
+  "[html][javascript][typescript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     }
@@ -9,5 +8,6 @@
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "all",
   "editor.trimAutoWhitespace": true,
+  "eslint.validate": ["javascript", "html"],
   "files.trimTrailingWhitespace": true
 }

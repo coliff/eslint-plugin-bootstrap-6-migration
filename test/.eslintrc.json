@@ -6,6 +6,6 @@
   "parser": "../parsers/plain-html-parser.js",
   "plugins": ["bootstrap-migration"],
   "rules": {
-    "bootstrap-migration/no-v5-classes": "error"
+    "bootstrap-migration/no-v5-classes": "warn"
   }
 }

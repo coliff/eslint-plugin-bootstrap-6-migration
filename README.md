@@ -61,6 +61,23 @@ Use `"error"` instead of `"warn"` if you want the rule to fail CI.
 
 Point the `files` / `overrides` entry at the templates you want checked (HTML, Vue SFCs, JSX, etc.). For raw `.html` files you may need a plugin such as [`eslint-plugin-html`](https://www.npmjs.com/package/eslint-plugin-html) so ESLint parses those files.
 
+## VS Code: real-time linting and autofix on save
+
+With the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) installed, problems update as you edit. To run ESLint fixes when you save (for HTML and JS/TS), and to ensure ESLint validates those languages, add the following to your workspace or user `settings.json`:
+
+```json
+{
+  "[html][javascript][typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "eslint.validate": ["javascript", "html"]
+}
+```
+
+`source.fixAll.eslint` set to `"explicit"` runs only when you use **Save** or **Save All** (not on every automatic save). Adjust `eslint.validate` if you use additional file types this plugin checks.
+
 ## Rules
 
 | Rule ID | Description |
