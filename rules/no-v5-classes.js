@@ -3,8 +3,12 @@
 function maskNonTemplateRegions(source) {
   let s = source;
   s = s.replace(/^---[\s\S]*?^---\s*\r?\n/m, (m) => " ".repeat(m.length));
-  s = s.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, (m) => " ".repeat(m.length));
-  s = s.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, (m) => " ".repeat(m.length));
+  s = s.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, (m) =>
+    " ".repeat(m.length),
+  );
+  s = s.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, (m) =>
+    " ".repeat(m.length),
+  );
   return s;
 }
 
@@ -18,7 +22,9 @@ function fixResponsiveInfix(whole) {
 }
 
 function fixBreakpointSuffix(whole) {
-  const m = whole.match(/^(container|navbar-expand|offcanvas)-(sm|md|lg|xl|xxl)$/);
+  const m = whole.match(
+    /^(container|navbar-expand|offcanvas)-(sm|md|lg|xl|xxl)$/,
+  );
   if (!m) {
     return null;
   }
@@ -42,16 +48,19 @@ const PATTERNS = [
   {
     regex:
       /\b(?:col|offset|row-cols|g|gx|gy|d|pe|ps|pt|pb|px|py|mt|mb|ms|me|mx|my|gap|flex|order|float|text|w|max-w|min-vw|align-items|align-content|align-self|justify-content|table-responsive|list-group-horizontal|sticky|vstack|hstack)-(?:sm|md|lg|xl|xxl)-[a-z0-9-]+/g,
-    describe: "responsive utility with v5 infix (e.g. col-md-6); use v6 prefix syntax (md:col-6)",
+    describe:
+      "responsive utility with v5 infix (e.g. col-md-6); use v6 prefix syntax (md:col-6)",
     fix: fixResponsiveInfix,
   },
   {
     regex: /\b(?:container|navbar-expand|offcanvas)-(?:sm|md|lg|xl|xxl)\b/g,
-    describe: "v5 container/navbar-expand/offcanvas breakpoint suffix; use sm:container, md:navbar-expand, etc.",
+    describe:
+      "v5 container/navbar-expand/offcanvas breakpoint suffix; use sm:container, md:navbar-expand, etc.",
     fix: fixBreakpointSuffix,
   },
   {
-    regex: /\bmodal-(?:dialog|content|header|body|footer|title|backdrop|sm|lg|xl|fullscreen)\b/g,
+    regex:
+      /\bmodal-(?:dialog|content|header|body|footer|title|backdrop|sm|lg|xl|fullscreen)\b/g,
     describe: "v5 Modal classes; use .dialog, .dialog-header, etc.",
   },
   {
@@ -72,18 +81,25 @@ const PATTERNS = [
     describe: "v5 form-check; use .form-field, .radio, or .check",
   },
   {
-    regex: /\bbtn-(?:primary|secondary|success|danger|warning|info|light|dark)\b/g,
-    describe: "v5 btn-* color; use .btn-solid .theme-* or .btn-outline .theme-* (.btn-link remains valid)",
+    regex:
+      /\bbtn-(?:primary|secondary|success|danger|warning|info|light|dark)\b/g,
+    describe:
+      "v5 btn-* color; use .btn-solid .theme-* or .btn-outline .theme-* (.btn-link remains valid)",
     fix: (whole) => {
-      const m = whole.match(/^btn-(primary|secondary|success|danger|warning|info|light|dark)$/);
+      const m = whole.match(
+        /^btn-(primary|secondary|success|danger|warning|info|light|dark)$/,
+      );
       return m ? `btn-solid theme-${m[1]}` : null;
     },
   },
   {
-    regex: /\bbtn-outline-(?:primary|secondary|success|danger|warning|info|light|dark)\b/g,
+    regex:
+      /\bbtn-outline-(?:primary|secondary|success|danger|warning|info|light|dark)\b/g,
     describe: "v5 btn-outline-*; use .btn-outline .theme-*",
     fix: (whole) => {
-      const m = whole.match(/^btn-outline-(primary|secondary|success|danger|warning|info|light|dark)$/);
+      const m = whole.match(
+        /^btn-outline-(primary|secondary|success|danger|warning|info|light|dark)$/,
+      );
       return m ? `btn-outline theme-${m[1]}` : null;
     },
   },
@@ -92,23 +108,31 @@ const PATTERNS = [
     describe:
       "v5 text-* semantic colors; use .fg-* (not text-center, contrast utilities like text-light/white, or text-body-*)",
     fix: (whole) => {
-      const m = whole.match(/^text-(primary|secondary|success|danger|warning|info|muted)$/);
+      const m = whole.match(
+        /^text-(primary|secondary|success|danger|warning|info|muted)$/,
+      );
       return m ? `fg-${m[1]}` : null;
     },
   },
   {
-    regex: /\balert-(?:primary|secondary|success|danger|warning|info|light|dark)\b/g,
+    regex:
+      /\balert-(?:primary|secondary|success|danger|warning|info|light|dark)\b/g,
     describe: "v5 alert-* variant; use .alert .theme-*",
     fix: (whole) => {
-      const m = whole.match(/^alert-(primary|secondary|success|danger|warning|info|light|dark)$/);
+      const m = whole.match(
+        /^alert-(primary|secondary|success|danger|warning|info|light|dark)$/,
+      );
       return m ? `theme-${m[1]}` : null;
     },
   },
   {
-    regex: /\bbadge\s+bg-(?:primary|secondary|success|danger|warning|info|light|dark)\b/g,
+    regex:
+      /\bbadge\s+bg-(?:primary|secondary|success|danger|warning|info|light|dark)\b/g,
     describe: "v5 badge bg-*; use .badge-subtle .theme-*",
     fix: (whole) => {
-      const m = whole.match(/^badge\s+bg-(primary|secondary|success|danger|warning|info|light|dark)$/);
+      const m = whole.match(
+        /^badge\s+bg-(primary|secondary|success|danger|warning|info|light|dark)$/,
+      );
       return m ? `badge-subtle theme-${m[1]}` : null;
     },
   },
@@ -154,11 +178,11 @@ module.exports = {
     type: "problem",
     docs: {
       description:
-        "Disallow Bootstrap v5 class and attribute patterns in favor of Bootstrap v6 (see .github/skills/bootstrap-v5-v6-migration.md).",
+        "Disallow Bootstrap v5 class and attribute patterns in favor of Bootstrap v6.",
     },
     messages: {
       forbidden:
-        "Bootstrap v5-only pattern detected ({{hint}}). Use Bootstrap v6 equivalents per .github/skills/bootstrap-v5-v6-migration.md.",
+        "Bootstrap v5-only pattern detected ({{hint}}). Use Bootstrap v6 equivalents.",
     },
     fixable: "code",
     schema: [],

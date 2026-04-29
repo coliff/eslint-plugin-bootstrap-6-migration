@@ -3,8 +3,11 @@
   "words": [
     "codeql",
     "coliff",
+    "hstack",
+    "Navs",
     "nvmrc",
-    "Oliff"
+    "Oliff",
+    "vstack"
   ],
   "language": "en,en-US",
   "allowCompoundWords": true,
