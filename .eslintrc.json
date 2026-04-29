@@ -1,0 +1,60 @@
+{
+  "root": true,
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "ignorePatterns": ["**/*.min.*"],
+  "rules": {
+    "array-callback-return": "error",
+    "block-scoped-var": "error",
+    "consistent-return": "error",
+    "curly": ["error", "all"],
+    "default-case": "error",
+    "dot-notation": "error",
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "no-constructor-return": "error",
+    "no-duplicate-imports": "error",
+    "no-eval": "error",
+    "no-implicit-coercion": "error",
+    "no-implied-eval": "error",
+    "no-loop-func": "error",
+    "no-lonely-if": "error",
+    "no-new-func": "error",
+    "no-new-wrappers": "error",
+    "no-script-url": "error",
+    "no-sequences": "error",
+    "no-self-compare": "error",
+    "no-shadow": "error",
+    "no-template-curly-in-string": "error",
+    "no-throw-literal": "error",
+    "no-unmodified-loop-condition": "error",
+    "no-unreachable-loop": "error",
+    "no-unneeded-ternary": "error",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "allowTaggedTemplates": true
+      }
+    ],
+    "no-useless-concat": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "no-use-before-define": "error",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "radix": "error",
+    "require-atomic-updates": "error",
+    "yoda": "error"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "version": "0.2",
+  "words": [
+    "codeql",
+    "coliff",
+    "nvmrc",
+    "Oliff"
+  ],
+  "language": "en,en-US",
+  "allowCompoundWords": true,
+  "ignorePaths": [
+    ".cspell.json",
+    "**/node_modules/**",
+    "*.min.*"
+  ],
+  "useGitignore": true
+}
