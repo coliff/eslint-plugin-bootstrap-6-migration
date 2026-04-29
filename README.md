@@ -1,6 +1,6 @@
 # eslint-plugin-bootstrap-migration
 
-**Pre-alpha: Experimental**
+[![Status: Experimental](https://img.shields.io/badge/Status-Experimental-orange)](https://github.com/coliff/eslint-plugin-bootstrap-6-migration) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ESLint rules that flag **Bootstrap v5** class names, component classes, and `data-bs-*` attribute values so you can migrate templates toward **Bootstrap v6** conventions. Reports are tied to actionable hints; many patterns include an automatic fix.
 
