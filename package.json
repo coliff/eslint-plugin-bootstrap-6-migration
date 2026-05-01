@@ -36,7 +36,7 @@
     "spellcheck": "npx cspell \"*.{html,js,json,md,mjs,txt,yml}\" --no-progress"
   },
   "devDependencies": {
-    "eslint": "^8.57.1",
+    "eslint": "^10.2.1",
     "eslint-plugin-bootstrap-migration": "file:."
   },
   "peerDependencies": {
