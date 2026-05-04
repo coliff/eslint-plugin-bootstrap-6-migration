@@ -26,16 +26,16 @@ pnpm add -D github:coliff/eslint-plugin-bootstrap-6-migration
 
 ## Configuration
 
-ESLint resolves the short plugin name **`bootstrap-migration`** from the package name `eslint-plugin-bootstrap-migration`.
+ESLint resolves the short plugin name **`bootstrap-migration`** from the package name `eslint-plugin-bootstrap-6-migration`.
 
 ### Flat config (`eslint.config.js` / `eslint.config.mjs`)
 
 ```javascript
-import bootstrapMigration from "eslint-plugin-bootstrap-migration";
+import bootstrapMigration from "eslint-plugin-bootstrap-6-migration";
 
 export default [
   {
-    files: ["**/*.{html,vue,jsx,tsx,js,mjs,cjs}"],
+    files: ["**/*.{astro,cjs,html,js,jsx,mjs,tsx,vue}"],
     plugins: {
       "bootstrap-migration": bootstrapMigration,
     },
@@ -72,7 +72,7 @@ With the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=
       "source.fixAll.eslint": "explicit"
     }
   },
-  "eslint.validate": ["javascript", "html"]
+  "eslint.validate": ["html", "javascript"]
 }
 ```
 

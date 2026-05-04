@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-bootstrap-migration",
+  "name": "eslint-plugin-bootstrap-6-migration",
   "version": "0.0.1-alpha.1",
   "private": true,
   "description": "ESLint rules to flag Bootstrap v5 class and attribute patterns (prefer v6)",
